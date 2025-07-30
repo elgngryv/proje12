@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sənə bir sirrim var...</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #ffdde1, #ee9ca7);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+      }
+
+      .container {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 2rem;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        max-width: 500px;
+        width: 100%;
+        position: relative; /* Əlavə olundu */
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+        color: #c94b4b;
+      }
+
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        color: #555;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+      }
+
+      .yes,
+      .no {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .yes {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .no {
+        background-color: #f44336;
+        color: white;
+        position: absolute;
+        left: 50%;
+        top: 0; /* Əlavə olundu */
+        transform: translateX(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Bir sirrim var...</h1>
+      <p>
+        Səndən çox xoşum gəlir və bunu sənə başqa cür deməyə cəsarət etmədim.
+        Amma indi sənə deyirəm: Mən səni bəyənirəm. Bu barədə nə düşünürsən
+      </p>
+      <div class="buttons">
+        <button class="yes">Hə ❤️</button>
+        <button class="no">Yox 😔</button>
+      </div>
+    </div>
+
+    <script>
+        const noBtn = document.querySelector(".no");
+        const yesBtn = document.querySelector(".yes");
+      
+        function moveNoButton() {
+          const container = document.querySelector(".container");
+          const maxX = container.offsetWidth - noBtn.offsetWidth;
+          const maxY = container.offsetHeight - noBtn.offsetHeight;
+          const randX = Math.random() * maxX;
+          const randY = Math.random() * maxY;
+      
+          noBtn.style.left = `${randX}px`;
+          noBtn.style.top = `${randY}px`;
+        }
+      
+        noBtn.addEventListener("mouseover", moveNoButton);
+        noBtn.addEventListener("click", moveNoButton);
+      
+        yesBtn.addEventListener("click", () => {
+          document.querySelector(
+            ".container"
+          ).innerHTML = `<h1>🥰 Demək sən də mənim haqqımda belə düşünürsən!</h1><p>İndi mən daha xoşbəxtəm!</p>`;
+        });
+      </script>
+      
+  </body>
+</html>
